@@ -1,7 +1,8 @@
 import React from 'react';
+import FileDrop from './components/file-drop';
 
-function App() {
-  return <p>App</p>;
-}
+const App = () => {
+  return <FileDrop />;
+};
 
 export default App;

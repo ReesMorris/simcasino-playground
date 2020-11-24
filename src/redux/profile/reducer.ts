@@ -8,13 +8,15 @@ export const initialState: ProfileState = {
 };
 
 const reducer: Reducer<ProfileState> = (state = initialState, action) => {
-  switch (action.type) {
-    case ProfileActionTypes.SET_PROFILE: {
-      return { ...state, loading: false, error: null, data: null };
-    }
-    default: {
+  const { type, payload } = action;
+
+  switch (type) {
+    case ProfileActionTypes.SET_PROFILE:
+      return { ...state, loading: false, error: null, data: payload };
+    case ProfileActionTypes.SET_PROFILE_ERROR:
+      return { ...state, loading: false, error: payload, data: null };
+    default:
       return state;
-    }
   }
 };
 
