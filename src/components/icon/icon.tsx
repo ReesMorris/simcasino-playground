@@ -4,17 +4,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Styles from './icon.styles';
 
 interface IconProps {
-  prefix?: IconPrefix;
-  name: IconName;
+  weight?: IconPrefix;
+  icon: IconName;
   title?: string;
   className?: string;
 }
 
-const Icon = ({ name, prefix = 'fab', title, className }: IconProps) => {
+const Icon = ({ icon, weight = 'fas', title, className }: IconProps) => {
   return (
     <Styles.IconWrapper>
       <FontAwesomeIcon
-        icon={[prefix, name]}
+        icon={[weight, icon]}
         title={title}
         className={className}
       />

@@ -20,7 +20,10 @@ const theme: DefaultTheme = {
   },
   ui: {
     border: '#e6e6e6',
-    border_focus: '#5692db'
+    border_focus: '#5692db',
+    active_background: '#5692db',
+    active_text: '#ffffff',
+    hover_background: '#3974bb'
   }
 };
 

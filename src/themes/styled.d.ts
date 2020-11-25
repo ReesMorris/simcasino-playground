@@ -22,6 +22,9 @@ declare module 'styled-components' {
     ui: {
       border: string;
       border_focus: string;
+      active_background: string;
+      active_text: string;
+      hover_background: string;
     };
   }
 }

@@ -73,13 +73,13 @@ const FileDrop = () => {
           Simply drag the entire save folder for your game into the area above.
         </Styles.HelpText>
         <Styles.HelpText>
-          <Styles.HelpIcon name='windows' prefix='fab' title='Windows' />
+          <Styles.HelpIcon icon='windows' weight='fab' title='Windows' />
           <span data-tip="Open Start, search for 'cmd', type 'cd ' and paste this text after it">
             %userprofile%\AppData\LocalLow\LVGameDev LLC\SimCasino\SavesDir
           </span>
         </Styles.HelpText>
         <Styles.HelpText>
-          <Styles.HelpIcon name='apple' prefix='fab' title='MacOS' />
+          <Styles.HelpIcon icon='apple' weight='fab' title='MacOS' />
           <span data-tip="Open Finder, click 'Go' from the top menu, and paste this text">
             ~/Library/Application Support/LVGameDev LLC/SimCasino/SavesDir
           </span>
