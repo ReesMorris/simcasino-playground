@@ -11,11 +11,11 @@ import Styles from './sidebar.styles';
 import Label from '../label';
 import Button from '../button';
 import FormGroup from '../form-group';
+import compareVersion from '../../utils/compare-version';
 
 const Sidebar = () => {
   const { profile, casino } = useSelector((state: ApplicationState) => state);
   const dispatch = useDispatch();
-
   return (
     <Styles.Sidebar>
       <Card disabled={!profile.data && !profile.error}>
