@@ -69,7 +69,7 @@ const InfoText = styled(Text)`
   line-height: 1.4rem;
 
   &:not(:last-child) {
-    margin-bottom: 0.7rem;
+    margin-bottom: 0.3rem;
   }
 `;
 

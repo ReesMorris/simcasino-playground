@@ -19,5 +19,9 @@ declare module 'styled-components' {
       background: string;
       active_border: string;
     };
+    ui: {
+      border: string;
+      border_focus: string;
+    };
   }
 }

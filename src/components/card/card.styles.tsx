@@ -10,7 +10,8 @@ const Card = styled.div<CardProps>`
   border-radius: 0.4rem;
   box-shadow: 0 0.2rem 0.5rem ${props => props.theme.card.shadow};
   width: 100%;
-  opacity: ${props => (props.disabled && '0.5') || '1'};
+  opacity: ${props => (props.disabled && '0.3') || '1'};
+  pointer-events: ${props => (props.disabled && 'none') || 'all'};
 
   &:not(:last-child) {
     margin-bottom: 2rem;

@@ -4,7 +4,7 @@ import Styles from './file-drop.styles';
 import { useDispatch } from 'react-redux';
 import { setProfile } from '../../redux/profile/actions';
 import { useDropzone } from 'react-dropzone';
-import Heading from '../heading';
+import { setCasino } from '../../redux/casino/actions';
 
 const FileDrop = () => {
   const [error, setError] = useState<string | null>(null);
@@ -30,7 +30,11 @@ const FileDrop = () => {
         // Find the .casino file
         if (file.name.match(/^.*\.casino$/)) {
           hasFoundMatch = true;
-          // console.log(file);
+          reader.onabort = () =>
+            dispatch(setProfile('ERROR File reading was aborted'));
+          reader.onerror = () =>
+            dispatch(setProfile('ERROR File reading failed'));
+          reader.onload = () => dispatch(setCasino(reader.result));
         }
 
         // No matches?

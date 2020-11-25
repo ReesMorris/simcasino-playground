@@ -17,6 +17,10 @@ const theme: DefaultTheme = {
   dropzone: {
     background: '#f5f5f5',
     active_border: '#7d9de4'
+  },
+  ui: {
+    border: '#e6e6e6',
+    border_focus: '#5692db'
   }
 };
 
