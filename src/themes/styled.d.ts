@@ -9,10 +9,15 @@ declare module 'styled-components' {
     colors: {
       primary: string;
       secondary: string;
+      heart: string;
     };
     card: {
       background: string;
       shadow: string;
+    };
+    dropzone: {
+      background: string;
+      active_border: string;
     };
   }
 }

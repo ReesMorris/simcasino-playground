@@ -6,12 +6,17 @@ const theme: DefaultTheme = {
     background: '#eaeef1'
   },
   colors: {
-    primary: '#66655d',
-    secondary: '#a6a6a6'
+    primary: '#4f4f4f',
+    secondary: '#a6a6a6',
+    heart: '#d25353'
   },
   card: {
     background: '#ffffff',
     shadow: '#d6d7d8'
+  },
+  dropzone: {
+    background: '#f5f5f5',
+    active_border: '#7d9de4'
   }
 };
 

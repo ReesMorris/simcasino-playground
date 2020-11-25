@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <Styles.Footer>
       <Styles.FooterText>
-        Made with &hearts; by{' '}
+        Made with <Styles.Heart>&hearts;</Styles.Heart> by{' '}
         <Styles.Link href='http://reesmorris.co.uk'>Rees Morris</Styles.Link>
       </Styles.FooterText>
       <Styles.FooterText>

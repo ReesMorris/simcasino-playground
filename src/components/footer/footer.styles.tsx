@@ -2,11 +2,19 @@ import styled from 'styled-components';
 import Text from '../text';
 
 const Footer = styled.footer`
-  margin-top: 3rem;
+  margin: 3rem 0;
 `;
 
 const FooterText = styled(Text)`
-  color: green;
+  font-size: 1.1rem;
+  line-height: 1.2rem;
+
+  &:not(:last-child) {
+    margin-bottom: 0.6rem;
+  }
+`;
+const Heart = styled.span`
+  color: ${props => props.theme.colors.heart};
 `;
 
 const Link = styled.a`
@@ -21,4 +29,4 @@ const Link = styled.a`
   }
 `;
 
-export default { Footer, FooterText, Link };
+export default { Footer, FooterText, Heart, Link };
