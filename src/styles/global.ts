@@ -8,7 +8,7 @@ export default css`
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
       Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
       'Segoe UI Symbol';
-    background: ${props => props.theme.colors.background};
+    background: ${props => props.theme.site.background};
     font-size: 1.6rem;
   }
 `;

@@ -6,7 +6,7 @@ export enum ProfileActionTypes {
 }
 
 export interface ProfileState {
-  readonly loading: boolean;
-  readonly error: string | null;
-  readonly data: IProfile | null;
+  loading: boolean;
+  error: string | null;
+  data: IProfile | null;
 }
