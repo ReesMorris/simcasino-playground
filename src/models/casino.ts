@@ -1,3 +1,5 @@
+import { SlotGameTypes } from './slots';
+
 export interface ICasinoMeta {
   fileName: string;
   md5hash: string;
@@ -9,7 +11,11 @@ export interface ICasino {
   };
   objects: ICasinoObject[];
   objectData: {
-    [id: string]: ICasinoObjectData;
+    [id: number]: {
+      SlotMachine?: {
+        SlotGame: SlotGameTypes;
+      };
+    };
   };
   gameTimer: {
     totalGameSeconds: number;
@@ -19,18 +25,4 @@ export interface ICasino {
 export interface ICasinoObject {
   guid: number;
   path: string;
-}
-
-export interface ICasinoObjectData {
-  SlotMachine?: {
-    SlotGame:
-      | 'Slot Queen of the Sands'
-      | 'Slot Classic Sevens'
-      | 'Slot GameJack - Video Poker'
-      | 'Slot Santa Gifts'
-      | 'Slot Elven Forest'
-      | 'Slot Zombie Treasures'
-      | 'Slot Lucky Mill'
-      | 'Slot Ring Of Fortune';
-  };
 }

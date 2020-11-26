@@ -7,7 +7,7 @@ import GlobalStyle from './styles';
 import { light } from './themes';
 import Footer from './components/footer';
 import PageWrapper from './components/page-wrapper';
-import './utils/font-awesome';
+import './libs/font-awesome';
 
 const App = () => {
   return (
