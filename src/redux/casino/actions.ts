@@ -1,11 +1,9 @@
 import { CasinoActionTypes } from './types';
 import { AppThunk } from '../store';
 import { slotGames, SlotGameTypes, slotMachines } from '../../models/slots';
+import { showToast } from '../toast/actions';
 
-export const setCasino: AppThunk = (
-  text: string,
-  file: File
-) => async dispatch => {
+export const setCasino: AppThunk = (text: string, file: File) => dispatch => {
   try {
     if (text.substr(0, 5) === 'ERROR')
       throw new Error(text.substring(6, text.length));
@@ -31,12 +29,10 @@ export const setCasino: AppThunk = (
   }
 };
 
-export const randomiseSlotGames: AppThunk = () => async (
-  dispatch,
-  getState
-) => {
+export const randomiseSlotGames: AppThunk = () => (dispatch, getState) => {
   const { data } = getState().casino;
   if (data) {
+    let updated = 0;
     let objectData = { ...data.objectData };
 
     // Get the `guids` of all slot machines that can change their name
@@ -54,6 +50,7 @@ export const randomiseSlotGames: AppThunk = () => async (
 
         // Update our local object with the new data
         if (slotMachine) {
+          updated++;
           objectData = {
             ...objectData,
             [guid]: {
@@ -74,5 +71,8 @@ export const randomiseSlotGames: AppThunk = () => async (
       type: CasinoActionTypes.SET_CASINO,
       payload: { ...data, objectData: { ...objectData } }
     });
+
+    // Send a notification
+    if (updated) dispatch(showToast(`Randomised ${updated} slot games`));
   }
 };

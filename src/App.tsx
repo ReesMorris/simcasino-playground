@@ -7,6 +7,7 @@ import GlobalStyle from './styles';
 import { light } from './themes';
 import Footer from './components/footer';
 import PageWrapper from './components/page-wrapper';
+import ToastWrapper from './components/toast-wrapper';
 import './libs/font-awesome';
 
 const App = () => {
@@ -20,6 +21,7 @@ const App = () => {
         </PageWrapper>
         <Footer />
       </Wrapper>
+      <ToastWrapper />
     </ThemeProvider>
   );
 };

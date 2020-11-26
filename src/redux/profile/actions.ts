@@ -1,7 +1,7 @@
 import { ProfileActionTypes } from './types';
 import { AppThunk } from '../store';
 
-export const setProfile: AppThunk = (profileFile: string) => async dispatch => {
+export const setProfile: AppThunk = (profileFile: string) => dispatch => {
   try {
     if (profileFile.substr(0, 5) === 'ERROR')
       throw new Error(profileFile.substring(6, profileFile.length));
@@ -18,7 +18,7 @@ export const setProfile: AppThunk = (profileFile: string) => async dispatch => {
   }
 };
 
-export const updateCash: AppThunk = (amount: string) => async (
+export const updateCash: AppThunk = (amount: string) => (
   dispatch,
   getState
 ) => {
@@ -31,7 +31,7 @@ export const updateCash: AppThunk = (amount: string) => async (
 export const updateSetting: AppThunk = (
   settingName: string,
   settingValue: boolean
-) => async (dispatch, getState) => {
+) => (dispatch, getState) => {
   console.log(settingName, settingValue);
   dispatch({
     type: ProfileActionTypes.SET_PROFILE,
