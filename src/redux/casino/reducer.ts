@@ -4,7 +4,8 @@ import { CasinoActionTypes, CasinoState } from './types';
 export const initialState: CasinoState = {
   loading: false,
   error: null,
-  data: null
+  data: null,
+  meta: null
 };
 
 const reducer: Reducer<CasinoState> = (state = initialState, action) => {
@@ -15,6 +16,8 @@ const reducer: Reducer<CasinoState> = (state = initialState, action) => {
       return { ...state, loading: false, error: null, data: payload };
     case CasinoActionTypes.SET_CASINO_ERROR:
       return { ...state, loading: false, error: payload, data: null };
+    case CasinoActionTypes.SET_CASINO_META:
+      return { ...state, meta: payload };
     default:
       return state;
   }

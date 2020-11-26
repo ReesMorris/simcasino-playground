@@ -1,3 +1,8 @@
+export interface ICasinoMeta {
+  fileName: string;
+  md5hash: string;
+}
+
 export interface ICasino {
   system: {
     Runtime: string;

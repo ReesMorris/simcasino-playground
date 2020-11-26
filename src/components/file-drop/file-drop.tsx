@@ -34,7 +34,9 @@ const FileDrop = () => {
             dispatch(setProfile('ERROR File reading was aborted'));
           reader.onerror = () =>
             dispatch(setProfile('ERROR File reading failed'));
-          reader.onload = () => dispatch(setCasino(reader.result));
+          reader.onload = () => {
+            dispatch(setCasino(reader.result, file));
+          };
         }
 
         // No matches?
