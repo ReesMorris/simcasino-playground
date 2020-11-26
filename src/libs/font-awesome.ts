@@ -2,6 +2,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import {
   faCheck,
+  faDice,
   faExclamationTriangle,
   faQuestion,
   faQuestionCircle,
@@ -14,5 +15,6 @@ library.add(
   faQuestion,
   faQuestionCircle,
   faExclamationTriangle,
-  faTimes
+  faTimes,
+  faDice
 );

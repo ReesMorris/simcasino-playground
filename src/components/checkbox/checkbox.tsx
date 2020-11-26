@@ -1,6 +1,5 @@
 import React from 'react';
-import ReactTooltip from 'react-tooltip';
-import Icon from '../icon';
+import Tooltip from '../tooltip';
 import Styles from './checkbox.styles';
 
 interface CheckboxProps {
@@ -32,7 +31,6 @@ const Checkbox = ({ id, label, checked, tooltip, onChange }: CheckboxProps) => {
           <Styles.TooltipContainer data-tip={tooltip}>
             <Styles.Tooltip icon='question-circle' weight='fas' />
           </Styles.TooltipContainer>
-          <ReactTooltip effect='solid' />
         </>
       )}
     </Styles.CheckboxWrapper>

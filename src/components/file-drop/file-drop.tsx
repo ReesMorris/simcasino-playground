@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import { setProfile } from '../../redux/profile/actions';
 import { useDropzone } from 'react-dropzone';
 import { setCasino } from '../../redux/casino/actions';
+import Tooltip from '../tooltip';
 
 const FileDrop = () => {
   const [error, setError] = useState<string | null>(null);
@@ -97,7 +98,6 @@ const FileDrop = () => {
           program could fail to work at any point.
         </Styles.InfoText>
       </Styles.InfoTextWrapper>
-      <ReactTooltip effect='solid' />
     </Styles.FileDropWrapper>
   );
 };

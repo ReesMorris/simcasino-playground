@@ -10,6 +10,7 @@ import Heading from '../heading';
 import Input from '../input';
 import Label from '../label';
 import Text from '../text';
+import Tooltip from '../tooltip';
 
 const ProfileCard = () => {
   const { profile } = useSelector((state: ApplicationState) => state);
@@ -102,6 +103,8 @@ const ProfileCard = () => {
           <FormGroup>
             <Button onClick={download}>Download profile</Button>
           </FormGroup>
+
+          <Tooltip />
         </>
       )}
     </Card>

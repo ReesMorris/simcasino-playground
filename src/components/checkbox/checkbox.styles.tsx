@@ -3,6 +3,7 @@ import Icon from '../icon';
 import Label from '../label';
 
 const CheckboxWrapper = styled.div`
+  flex-grow: 1;
   display: flex;
   align-items: center;
 `;
@@ -57,7 +58,7 @@ const CheckboxIcon = styled(Icon)<CheckboxIconProps>`
   pointer-events: none;
 `;
 
-const TooltipContainer = styled.p``;
+const TooltipContainer = styled.div``;
 const Tooltip = styled(Icon)`
   font-size: 1rem;
   cursor: help;
