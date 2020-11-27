@@ -1,8 +1,6 @@
 import { IconName } from '@fortawesome/fontawesome-svg-core';
-import React from 'react';
-import ReactTooltip from 'react-tooltip';
+import React, { useState } from 'react';
 import Icon from '../icon';
-import Tooltip from '../tooltip';
 import Styles from './button-row.styles';
 
 interface ButtonRowProps {
@@ -13,9 +11,17 @@ interface ButtonRowProps {
 }
 
 const ButtonRow = ({ icon, label, onClick, tooltip }: ButtonRowProps) => {
+  const [pressed, setPressed] = useState(false);
+
   return (
     <Styles.ButtonRow>
-      <Styles.SmallButton onClick={onClick}>
+      <Styles.SmallButton
+        pressed={pressed}
+        onClick={onClick}
+        onMouseDown={() => setPressed(true)}
+        onMouseUp={() => setPressed(false)}
+        onBlur={() => setPressed(false)}
+      >
         <Icon icon={icon} />
       </Styles.SmallButton>
       <Styles.ButtonLabel>{label}</Styles.ButtonLabel>

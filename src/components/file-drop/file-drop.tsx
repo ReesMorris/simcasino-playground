@@ -1,5 +1,4 @@
 import React, { useCallback, useState } from 'react';
-import ReactTooltip from 'react-tooltip';
 import Styles from './file-drop.styles';
 import { useDispatch } from 'react-redux';
 import { setProfile } from '../../redux/profile/actions';
@@ -98,6 +97,7 @@ const FileDrop = () => {
           program could fail to work at any point.
         </Styles.InfoText>
       </Styles.InfoTextWrapper>
+      <Tooltip />
     </Styles.FileDropWrapper>
   );
 };

@@ -8,12 +8,16 @@ const ButtonRow = styled.div`
   align-items: center;
 `;
 
-const SmallButton = styled(Button)`
+interface SmallButtonProps {
+  pressed: boolean;
+}
+const SmallButton = styled(Button)<SmallButtonProps>`
   width: 3rem;
   height: 3rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  transform: scale(${props => (props.pressed && '0.8') || '1'});
 `;
 
 const ButtonLabel = styled(Label)`

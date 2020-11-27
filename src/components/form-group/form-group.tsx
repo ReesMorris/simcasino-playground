@@ -1,4 +1,5 @@
 import React from 'react';
+import Tooltip from '../tooltip';
 import Styles from './form-group.styles';
 
 interface FormGroupProps {
@@ -7,7 +8,12 @@ interface FormGroupProps {
 }
 
 const FormGroup = ({ small, children }: FormGroupProps) => {
-  return <Styles.FormGroup small={small}>{children}</Styles.FormGroup>;
+  return (
+    <Styles.FormGroup small={small}>
+      {children}
+      <Tooltip />
+    </Styles.FormGroup>
+  );
 };
 
 export default FormGroup;

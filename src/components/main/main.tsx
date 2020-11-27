@@ -9,7 +9,6 @@ const Main = () => {
     <Styles.Main>
       <Card>
         <FileDrop />
-        <Tooltip />
       </Card>
     </Styles.Main>
   );

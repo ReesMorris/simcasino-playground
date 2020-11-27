@@ -4,6 +4,7 @@ import {
   faCheck,
   faDice,
   faExclamationTriangle,
+  faPiggyBank,
   faQuestion,
   faQuestionCircle,
   faTimes
@@ -16,5 +17,6 @@ library.add(
   faQuestionCircle,
   faExclamationTriangle,
   faTimes,
-  faDice
+  faDice,
+  faPiggyBank
 );

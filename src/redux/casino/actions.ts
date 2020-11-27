@@ -21,6 +21,12 @@ export const setCasino: AppThunk = (text: string, file: File) => dispatch => {
         text.substring(lineBreakIndex, text.length) // without the md5 hash
       )
     });
+
+    console.log(
+      JSON.parse(
+        text.substring(lineBreakIndex, text.length) // without the md5 hash
+      )
+    );
   } catch (err) {
     dispatch({
       type: CasinoActionTypes.SET_CASINO_ERROR,
@@ -73,6 +79,23 @@ export const randomiseSlotGames: AppThunk = () => (dispatch, getState) => {
     });
 
     // Send a notification
-    if (updated) dispatch(showToast(`Randomised ${updated} slot games`));
+    dispatch(showToast(`Randomised ${updated} slot games`));
+  }
+};
+
+export const clearBankLoans: AppThunk = () => (dispatch, getState) => {
+  const { data } = getState().casino;
+  if (data) {
+    const loans = data.bank.Loans.length;
+
+    if (loans > 0) {
+      dispatch({
+        type: CasinoActionTypes.SET_CASINO,
+        payload: { ...data, bank: { Loans: [], TotalOutstandingLoanAmt: 0 } }
+      });
+    }
+
+    // Send a notification
+    dispatch(showToast(`Wiped ${loans} bank loans`));
   }
 };

@@ -20,6 +20,10 @@ export interface ICasino {
   gameTimer: {
     totalGameSeconds: number;
   };
+  bank: {
+    Loans: any[];
+    TotalOutstandingLoanAmt: number;
+  };
 }
 
 export interface ICasinoObject {

@@ -18,7 +18,7 @@ const ProfileCard = () => {
 
   const download = () => {
     const element = document.createElement('a');
-    const file = new Blob([JSON.stringify(profile)], {
+    const file = new Blob([JSON.stringify(profile.data)], {
       type: 'text/plain'
     });
     element.href = URL.createObjectURL(file);
@@ -103,8 +103,6 @@ const ProfileCard = () => {
           <FormGroup>
             <Button onClick={download}>Download profile</Button>
           </FormGroup>
-
-          <Tooltip />
         </>
       )}
     </Card>

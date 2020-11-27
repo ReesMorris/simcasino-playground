@@ -1,16 +1,14 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { randomiseSlotGames } from '../../redux/casino/actions';
+import { clearBankLoans, randomiseSlotGames } from '../../redux/casino/actions';
 import { ApplicationState } from '../../redux/root-reducer';
 import Button from '../button';
 import ButtonRow from '../button-row';
 import Card from '../card';
 import FormGroup from '../form-group';
 import Heading from '../heading';
-import Icon from '../icon';
 import Label from '../label';
 import Text from '../text';
-import Tooltip from '../tooltip';
 import VersionValidator from '../version-validator';
 
 const CasinoCard = () => {
@@ -21,10 +19,8 @@ const CasinoCard = () => {
     if (casino.meta) {
       const element = document.createElement('a');
 
-      const file = new Blob(
-        [`${casino.meta.md5hash}\n${JSON.stringify(casino)}`],
-        { type: 'text/plain' }
-      );
+      const content = `${casino.meta.md5hash}\n${JSON.stringify(casino.data)}`;
+      const file = new Blob([content], { type: 'text/plain' });
       element.href = URL.createObjectURL(file);
       element.download = casino.meta.fileName;
       document.body.appendChild(element);
@@ -59,6 +55,14 @@ const CasinoCard = () => {
                 tooltip="Will randomise each slot machine's game. Recommended if you apply bulk changes a lot. Does not affect machines that only have one game."
               />
             </FormGroup>
+            <FormGroup small>
+              <ButtonRow
+                icon='piggy-bank'
+                label={`Clear Bank Loans (${casino.data.bank.Loans.length})`}
+                onClick={() => dispatch(clearBankLoans())}
+                tooltip='Writes off all bank loans and outstanding loan debt.'
+              />
+            </FormGroup>
           </FormGroup>
 
           <FormGroup>
@@ -68,8 +72,6 @@ const CasinoCard = () => {
           <FormGroup>
             <Button onClick={() => download()}>Download casino profile</Button>
           </FormGroup>
-
-          <Tooltip />
         </>
       )}
     </Card>
