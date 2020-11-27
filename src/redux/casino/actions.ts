@@ -21,12 +21,6 @@ export const setCasino: AppThunk = (text: string, file: File) => dispatch => {
         text.substring(lineBreakIndex, text.length) // without the md5 hash
       )
     });
-
-    console.log(
-      JSON.parse(
-        text.substring(lineBreakIndex, text.length) // without the md5 hash
-      )
-    );
   } catch (err) {
     dispatch({
       type: CasinoActionTypes.SET_CASINO_ERROR,

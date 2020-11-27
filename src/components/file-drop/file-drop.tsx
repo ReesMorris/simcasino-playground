@@ -4,7 +4,6 @@ import { useDispatch } from 'react-redux';
 import { setProfile } from '../../redux/profile/actions';
 import { useDropzone } from 'react-dropzone';
 import { setCasino } from '../../redux/casino/actions';
-import Tooltip from '../tooltip';
 
 const FileDrop = () => {
   const [error, setError] = useState<string | null>(null);
@@ -67,22 +66,25 @@ const FileDrop = () => {
           <Styles.UploadText>
             Drag and drop your save folder or files into this area
           </Styles.UploadText>
+          <Styles.SubText>
+            Note that you can currently only edit one .casino file at a time
+          </Styles.SubText>
           {error && <Styles.SubText>{error}</Styles.SubText>}
         </Styles.TextWrapper>
       </Styles.FileDrop>
       <Styles.HelpTextWrapper>
         <Styles.HelpText bold>
-          Simply drag the entire save folder for your game into the area above.
+          Simply drag your entire save folder or files into the area above.
         </Styles.HelpText>
         <Styles.HelpText>
           <Styles.HelpIcon icon='windows' weight='fab' title='Windows' />
-          <span data-tip="Open Start, search for 'cmd', type 'cd ' and paste this text after it">
+          <span>
             %userprofile%\AppData\LocalLow\LVGameDev LLC\SimCasino\SavesDir
           </span>
         </Styles.HelpText>
         <Styles.HelpText>
           <Styles.HelpIcon icon='apple' weight='fab' title='MacOS' />
-          <span data-tip="Open Finder, click 'Go' from the top menu, and paste this text">
+          <span>
             ~/Library/Application Support/LVGameDev LLC/SimCasino/SavesDir
           </span>
         </Styles.HelpText>
@@ -93,11 +95,10 @@ const FileDrop = () => {
           uploaded, or saved.
         </Styles.InfoText>
         <Styles.InfoText>
-          Please use at your own risk; SimCasino is rapidly changing and this
-          program could fail to work at any point.
+          Please make a backup before using. SimCasino is rapidly changing and I
+          can't guarantee compatibility.
         </Styles.InfoText>
       </Styles.InfoTextWrapper>
-      <Tooltip />
     </Styles.FileDropWrapper>
   );
 };

@@ -3,6 +3,13 @@ import Text from '../text';
 
 const Footer = styled.footer`
   margin: 3rem 0;
+  display: flex;
+  align-items: center;
+`;
+
+const Left = styled.div`
+  flex-grow: 1;
+  margin-right: 0.5rem;
 `;
 
 const FooterText = styled(Text)`
@@ -29,4 +36,22 @@ const Link = styled.a`
   }
 `;
 
-export default { Footer, FooterText, Heart, Link };
+const Right = styled.div`
+  display: flex;
+`;
+
+const IconLink = styled.a`
+  color: inherit;
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &:not(:first-child) {
+    margin-left: 1rem;
+  }
+`;
+
+export default { Footer, Left, FooterText, Heart, Link, Right, IconLink };

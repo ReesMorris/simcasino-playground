@@ -101,7 +101,7 @@ const ProfileCard = () => {
           </FormGroup>
 
           <FormGroup>
-            <Button onClick={download}>Download profile</Button>
+            <Button onClick={download}>Download .profile</Button>
           </FormGroup>
         </>
       )}

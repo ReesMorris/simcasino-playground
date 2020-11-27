@@ -30,7 +30,9 @@ const CasinoCard = () => {
 
   return (
     <Card disabled={!casino.data && !casino.error}>
-      <Heading>Casino</Heading>
+      <Heading>
+        Casino {casino.meta && `(${casino.meta.fileName.split('.')[0]})`}
+      </Heading>
       {!casino.data && !casino.error && (
         <Text center>
           Please drag your game save directory, or the individual .casino file
@@ -40,11 +42,6 @@ const CasinoCard = () => {
       {casino.error && <Text>{casino.error}</Text>}
       {casino.data && (
         <>
-          <Text>Runtime: {casino.data.system.Runtime}</Text>
-          <Text>
-            totalGameSeconds: {casino.data.gameTimer.totalGameSeconds}
-          </Text>
-
           <FormGroup>
             <Label as='div'>Tools</Label>
             <FormGroup small>
@@ -70,7 +67,7 @@ const CasinoCard = () => {
           </FormGroup>
 
           <FormGroup>
-            <Button onClick={() => download()}>Download casino profile</Button>
+            <Button onClick={() => download()}>Download .Casino</Button>
           </FormGroup>
         </>
       )}

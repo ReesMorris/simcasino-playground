@@ -36,6 +36,7 @@ const TextWrapper = styled.div`
 const UploadText = styled(Text)`
   font-size: 2rem;
   opacity: 0.7;
+  margin-bottom: 0.3rem !important;
 `;
 
 const SubText = styled(Text)`

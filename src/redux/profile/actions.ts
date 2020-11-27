@@ -32,7 +32,6 @@ export const updateSetting: AppThunk = (
   settingName: string,
   settingValue: boolean
 ) => (dispatch, getState) => {
-  console.log(settingName, settingValue);
   dispatch({
     type: ProfileActionTypes.SET_PROFILE,
     payload: { ...getState().profile.data, [settingName]: settingValue }
