@@ -3,6 +3,7 @@ import Styles from './button.styles';
 
 interface ButtonProps {
   type?: 'button' | 'submit' | 'reset';
+  id?: string;
   className?: string;
   children: React.ReactNode;
   onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
@@ -13,6 +14,7 @@ interface ButtonProps {
     | ((event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void)
     | undefined;
   onBlur?: ((event: React.FocusEvent<HTMLButtonElement>) => void) | undefined;
+  'aria-labelledby'?: string;
 }
 
 const Button = ({
@@ -22,6 +24,7 @@ const Button = ({
   onMouseDown,
   onMouseUp,
   onBlur,
+  'aria-labelledby': ariaLabelledBy,
   children
 }: ButtonProps) => {
   return (
@@ -32,6 +35,7 @@ const Button = ({
       onMouseDown={onMouseDown}
       onMouseUp={onMouseUp}
       onBlur={onBlur}
+      aria-labelledby={ariaLabelledBy}
     >
       {children}
     </Styles.Button>

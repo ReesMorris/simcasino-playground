@@ -46,6 +46,7 @@ const CasinoCard = () => {
             <Label as='div'>Tools</Label>
             <FormGroup small>
               <ButtonRow
+                id='randomgames'
                 icon='dice'
                 label='Randomise Slot Games'
                 onClick={() => dispatch(randomiseSlotGames())}
@@ -54,6 +55,7 @@ const CasinoCard = () => {
             </FormGroup>
             <FormGroup small>
               <ButtonRow
+                id='loans'
                 icon='piggy-bank'
                 label={`Clear Bank Loans (${casino.data.bank.Loans.length})`}
                 onClick={() => dispatch(clearBankLoans())}

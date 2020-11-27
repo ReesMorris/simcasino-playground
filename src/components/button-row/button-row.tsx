@@ -4,13 +4,14 @@ import Icon from '../icon';
 import Styles from './button-row.styles';
 
 interface ButtonRowProps {
+  id: string;
   icon: IconName;
   label: string;
   onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   tooltip?: string;
 }
 
-const ButtonRow = ({ icon, label, onClick, tooltip }: ButtonRowProps) => {
+const ButtonRow = ({ id, icon, label, onClick, tooltip }: ButtonRowProps) => {
   const [pressed, setPressed] = useState(false);
 
   return (
@@ -21,10 +22,11 @@ const ButtonRow = ({ icon, label, onClick, tooltip }: ButtonRowProps) => {
         onMouseDown={() => setPressed(true)}
         onMouseUp={() => setPressed(false)}
         onBlur={() => setPressed(false)}
+        aria-labelledby={id}
       >
         <Icon icon={icon} />
       </Styles.SmallButton>
-      <Styles.ButtonLabel>{label}</Styles.ButtonLabel>
+      <Styles.ButtonLabel id={id}>{label}</Styles.ButtonLabel>
 
       {tooltip && (
         <>

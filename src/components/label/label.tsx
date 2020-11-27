@@ -3,13 +3,14 @@ import Styles from './label.styles';
 
 interface LabelProps {
   as?: React.ElementType;
+  id?: string;
   htmlFor?: string;
   className?: string;
   children: React.ReactNode;
 }
-const Label = ({ as, htmlFor, className, children }: LabelProps) => {
+const Label = ({ id, as, htmlFor, className, children }: LabelProps) => {
   return (
-    <Styles.Label as={as} htmlFor={htmlFor} className={className}>
+    <Styles.Label id={id} as={as} htmlFor={htmlFor} className={className}>
       {children}
     </Styles.Label>
   );
