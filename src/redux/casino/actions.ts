@@ -79,17 +79,30 @@ export const randomiseSlotGames: AppThunk = () => (dispatch, getState) => {
 
 export const clearBankLoans: AppThunk = () => (dispatch, getState) => {
   const { data } = getState().casino;
-  if (data) {
-    const loans = data.bank.Loans.length;
+  let updated = 0;
 
-    if (loans > 0) {
-      dispatch({
-        type: CasinoActionTypes.SET_CASINO,
-        payload: { ...data, bank: { Loans: [], TotalOutstandingLoanAmt: 0 } }
-      });
-    }
+  if (data) {
+    const loans = data.bank.Loans;
+    const updatedLoans = loans.map(loan => {
+      if (loan.RemainingPrincipal > 0) updated += 1;
+      return {
+        ...loan,
+        LoanStatus: 2,
+        PaymentsRemaining: 0,
+        RemainingPrincipal: 0
+      };
+    });
+
+    // Update the Redux state
+    dispatch({
+      type: CasinoActionTypes.SET_CASINO,
+      payload: {
+        ...data,
+        bank: { TotalOutstandingLoanAmt: 0, Loans: updatedLoans }
+      }
+    });
 
     // Send a notification
-    dispatch(showToast(`Wiped ${loans} bank loans`));
+    dispatch(showToast(`Paid-off ${updated} remaining bank loans`));
   }
 };

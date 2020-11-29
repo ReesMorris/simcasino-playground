@@ -57,7 +57,11 @@ const CasinoCard = () => {
               <ButtonRow
                 id='loans'
                 icon='piggy-bank'
-                label={`Clear Bank Loans (${casino.data.bank.Loans.length})`}
+                label={`Clear Bank Loans (${
+                  casino.data.bank.Loans.filter(
+                    loan => loan.RemainingPrincipal > 0
+                  ).length
+                })`}
                 onClick={() => dispatch(clearBankLoans())}
                 tooltip='Writes off all bank loans and outstanding loan debt.'
               />

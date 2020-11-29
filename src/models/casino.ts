@@ -21,7 +21,7 @@ export interface ICasino {
     totalGameSeconds: number;
   };
   bank: {
-    Loans: any[];
+    Loans: ILoan[];
     TotalOutstandingLoanAmt: number;
   };
 }
@@ -29,4 +29,10 @@ export interface ICasino {
 export interface ICasinoObject {
   guid: number;
   path: string;
+}
+
+export interface ILoan {
+  LoanStatus: number;
+  PaymentsRemaining: number;
+  RemainingPrincipal: number;
 }
