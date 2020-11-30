@@ -15,11 +15,12 @@ export const setCasino: AppThunk = (text: string, file: File) => dispatch => {
       payload: { fileName: file.name, md5hash: md5 }
     });
 
+    let modifiedText = text.substring(lineBreakIndex, text.length); // remove md5 string
+    modifiedText = modifiedText.replaceAll('/*nulled destroyed MIA*/', ''); // this malforms the JSON
+
     dispatch({
       type: CasinoActionTypes.SET_CASINO,
-      payload: JSON.parse(
-        text.substring(lineBreakIndex, text.length) // without the md5 hash
-      )
+      payload: JSON.parse(modifiedText)
     });
   } catch (err) {
     dispatch({
